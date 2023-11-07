@@ -18,6 +18,12 @@ V_i_m V_j_m
 $$
 に変換して他のプログラムから読み込みやすいようにする
 
+## unify.bash
+
+compare_same_version_hash.pyで使うデータを作成
+poldamdot_to_easygraph.pyで作成した同型なマークル木のデータを一つのファイルにまとめる
+
+
 ## compare_same_version_hash.py
 
 同型なマークル木に対してpoldamdot_to_easygraph.pyの出力結果を一つのファイルにまとめたものを準備する
