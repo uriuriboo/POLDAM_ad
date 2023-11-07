@@ -28,6 +28,11 @@ poldamdot_to_easygraph.pyで作成した同型なマークル木のデータを�
 それを読み込んでハッシュ値が変化したメソッドを出力する
 ただし標準入力を想定
 
+1. poldamdot_to_easygraph.py
+2. unify.bash
+3. compare_same_version_hash.py
+の順番に使うと比較ができます
+
 ## get_method.py
 
 指定したメソッドのコードを取得
