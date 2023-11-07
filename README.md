@@ -1,6 +1,5 @@
 # POLDAM_ad
 
-
 ## poldamdot_to_easygraph.py
 
 POLDAMのから出力されたグラフを
@@ -23,11 +22,11 @@ $$
 compare_same_version_hash.pyで使うデータを作成
 poldamdot_to_easygraph.pyで作成した同型なマークル木のデータを一つのファイルにまとめる
 
-
 ## compare_same_version_hash.py
 
 同型なマークル木に対してpoldamdot_to_easygraph.pyの出力結果を一つのファイルにまとめたものを準備する
 それを読み込んでハッシュ値が変化したメソッドを出力する
+ただし標準入力を想定
 
 ## get_method.py
 
