@@ -1,9 +1,8 @@
-def get_graph(file):
+def get_graph(input_file,output_file):
 
-    f = open(file, 'r')
-
+    f = open(input_file, 'r')
+    w = open(output_file, 'w')
     lines = f.readlines()
-
     # 競プロみたいな感じに点、辺の個数を表示
     n = 0
     m = 0
@@ -12,8 +11,7 @@ def get_graph(file):
             n += 1
         if "->" in line:
             m += 1
-    print(n,m)
-
+    w.write("{} {}\n".format(n,m))
 
     # CFH CPHが出力されないことがあることを考慮しています
     # TODO: なぜか片方しかハッシュがとれていないときにも対応する
@@ -25,13 +23,18 @@ def get_graph(file):
             class_method = parsed[1].split("\"")[1][0:-1]
             mode = "vertex"
         if mode == "vertex":
+
             if "CFH" in line:
                 cfh = line.split("=")[1][0:-1]
-            if "CPH" in line:
+            elif "CPH" in line:
                 cph = line.split("=")[1][0:-4]
                 mode=""
+            elif "FH" in line:
+                fh = line.split("=")[1][0:-1]
+            elif "PH"in line:
+                ph = line.split("=")[1][0:-1]
             if "]" in line and "CPH" in line:
-                print("{} {} {} {}".format(class_method,vertex,cfh,cph))
+                w.write("{} {} {} {} {} {}\n".format(class_method,vertex,fh,ph,cfh,cph))
                 mode = ""
                 cfh=""
                 cph=""
@@ -44,6 +47,9 @@ def get_graph(file):
             parsed_line = line.split("->")
             start_vertex = parsed_line[0]
             end_vertex = parsed_line[1].split(" ")[0]
-            print("{} {}".format(start_vertex,end_vertex))
+            w.write("{} {}\n".format(start_vertex,end_vertex))
+    f.close()
+    w.close()
 
-get_graph(file = "./2_flow_target.dot")
+# get_graph(input_file = "twodot/2_flow_m_c_o_target.dot",output_file="./2fo2.txt")
+get_graph(input_file = "twodot/2_flow_m_c_n_target.dot",output_file="./2fn2.txt")
